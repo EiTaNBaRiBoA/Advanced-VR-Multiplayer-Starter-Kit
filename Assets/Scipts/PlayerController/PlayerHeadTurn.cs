@@ -10,6 +10,8 @@ public class PlayerHeadTurn : NetworkBehaviour
 {
     public float degrees;
     public float joystickThreshold;
+
+    private bool _waitingForStickReset;
     
     // Update is called once per frame
     void Update()
@@ -31,13 +33,19 @@ public class PlayerHeadTurn : NetworkBehaviour
         }
 
         if (Mathf.Abs(turnInput) < joystickThreshold)
+        {
+            _waitingForStickReset = false;
             return;
+        }
         
-        float turnDegrees = (turnInput > 0) ? degrees : -degrees;
-        //TODO only do once
+        if(_waitingForStickReset)
+            return;
 
-        TryMove(); 
+        float turnDegrees = (turnInput > 0) ? degrees : -degrees;
+        GetComponent<VRRig>().cameraOffset.Rotate(transform.up, turnDegrees);
+        _waitingForStickReset = true;
     }
+
 
     private void TryMove()
     {
