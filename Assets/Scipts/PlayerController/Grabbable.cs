@@ -50,6 +50,12 @@ public class Grabbable : NetworkBehaviour
         }
     }
 
+    public void Grab(VRHand hand)
+    {
+        holdingHand = hand;
+        ClaimAuthority();
+    }
+    
     public void Release()
     {
         //If physics mode was kinematic, simulate a throw
@@ -59,10 +65,12 @@ public class Grabbable : NetworkBehaviour
             _rb.angularVelocity = holdingHand.EstimateAngularVelocity();
             _rb.velocity = holdingHand.EstimateVelocity();
         }
+        
+        holdingHand = null;
     }
     
     [Command(requiresAuthority = false)]
-    public void ClaimAuthority(NetworkConnectionToClient sender = null)
+    private void ClaimAuthority(NetworkConnectionToClient sender = null)
     {
         netIdentity.RemoveClientAuthority();
         netIdentity.AssignClientAuthority(sender);

@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3955387041243934480}
   - component: {fileID: 2020029294199115052}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1793676357451434343}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -61,7 +61,7 @@ GameObject:
   - component: {fileID: 2449457033117780555}
   - component: {fileID: 3567888453924600422}
   - component: {fileID: 2556540641243856456}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Joystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -121,7 +121,7 @@ MonoBehaviour:
   actingTransform: {fileID: 8488298684603010069}
   handTriggers:
   - {fileID: 2020029294199115052}
-  hand: {fileID: 0}
+  holdingHand: {fileID: 0}
 --- !u!33 &2215513142875961354
 MeshFilter:
   m_ObjectHideFlags: 0
@@ -233,7 +233,7 @@ GameObject:
   - component: {fileID: 8488298684603010069}
   - component: {fileID: 2224674133865645121}
   - component: {fileID: 6120762418832327392}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Stick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -381,7 +381,7 @@ GameObject:
   - component: {fileID: 628375283257965954}
   - component: {fileID: 6085148081432535653}
   - component: {fileID: 7491049208121217680}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Handle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -477,7 +477,7 @@ GameObject:
   - component: {fileID: 6515028156449108215}
   - component: {fileID: 28829689770076228}
   - component: {fileID: 7891600603798392117}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Base
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -561,7 +561,7 @@ GameObject:
   - component: {fileID: 6301934985817887303}
   - component: {fileID: 3037883906825477885}
   - component: {fileID: 3419008651236157379}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}

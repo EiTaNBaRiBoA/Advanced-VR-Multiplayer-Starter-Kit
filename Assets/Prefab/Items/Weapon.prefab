@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 836143305405794372}
   - component: {fileID: 1542211165044470419}
   - component: {fileID: 7694217978387473864}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube (3)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -94,7 +94,7 @@ GameObject:
   - component: {fileID: 5945489917956784437}
   - component: {fileID: 967157800763904613}
   - component: {fileID: 216062032980103301}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube (5)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -175,7 +175,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8103191687824957262}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: bulletSpawn
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -207,7 +207,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6632098833722519484}
   - component: {fileID: 106219781901328204}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Cube (6)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -237,7 +237,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6412103218910881895}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -254,7 +254,7 @@ GameObject:
   - component: {fileID: 5281733440877501672}
   - component: {fileID: 1721041931995579139}
   - component: {fileID: 7107927398407473071}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube (2)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -351,7 +351,7 @@ GameObject:
   - component: {fileID: 5893990014051886496}
   - component: {fileID: 7669008973055264117}
   - component: {fileID: 7943416989045946856}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -451,7 +451,7 @@ GameObject:
   - component: {fileID: 7870181374242599733}
   - component: {fileID: 5577185029067291190}
   - component: {fileID: 510001834501015077}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Weapon
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -604,7 +604,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7870181374292554962}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -641,7 +641,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7870181374351541628}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: triggers
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -676,7 +676,7 @@ GameObject:
   - component: {fileID: 7870181374404390720}
   - component: {fileID: 7870181374404390723}
   - component: {fileID: 7870181374404390722}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -772,7 +772,7 @@ GameObject:
   - component: {fileID: 8444180036563181961}
   - component: {fileID: 3599243150121310572}
   - component: {fileID: 4941009832452114481}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Cube (4)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

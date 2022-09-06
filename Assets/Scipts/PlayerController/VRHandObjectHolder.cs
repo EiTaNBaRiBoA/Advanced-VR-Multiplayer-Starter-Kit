@@ -5,21 +5,25 @@ using UnityEngine;
 
 public class VRHandObjectHolder : MonoBehaviour
 {
-    //TODO two grabbables can be held in same hand
-    
-    //TODO vibration trigger enter
     //TODO Multiple hands on grabbable
+    //TODO Multiple grabbables on same object
+    //TODO different grab buttons
     //TODO held at position
     //TODO hand presence pose
-    public Grabbable heldObject;
-    private float _holdButtonThreshold = 0.8f;
+    private const float TriggerSize = 0.1f;
+    private const float HoldButtonThreshold = 0.1f;
+    
+    public LayerMask layers;
+    [HideInInspector]public Grabbable heldObject;
     
     private VRRig _vrRig;
     private VRHand _hand;
+    private Grabbable _lastFrameSelectedObject;
 
     private void Start()
     {
         _vrRig = GetComponentInParent<VRRig>();
+        _hand = GetComponent<VRHand>();
     }
 
     private void Update()
@@ -39,38 +43,67 @@ public class VRHandObjectHolder : MonoBehaviour
 
     private void CheckGrabbed()
     {
-        //Check inside all triggers
-        foreach (Collider trigger in handTriggers)
+        Collider trigger = ClosestTrigger();
+
+        if (trigger == null)
         {
-            //Check all hands
-            foreach (VRHand vrHand in VRHand.allLocalHands)
-            {
-                //Is hand within trigger zone?
-                if (!trigger.bounds.Contains(vrHand.transform.position))
-                    continue;
-                _hand.Vibrate(0.3f, 0.1f);//TODO vibrate on enter
-                
-                //TODO make sure were not holding it already
-                
-                //Is button held down?
-                if (_hand.GetInputScheme().Hold.ReadValue<float>() < _holdButtonThreshold)
-                    continue;
-                
-                //Grab
-                heldObject.holdingHand = _hand;
-                heldObject.ClaimAuthority();
-                _hand.Vibrate(0.1f, 0.1f);
-            }
+            _lastFrameSelectedObject = null;
+            return;
         }
+
+        Grabbable selectedObject = trigger.gameObject.GetComponentInParent<Grabbable>();
+        
+        //Check if just was Selected
+        if(selectedObject != _lastFrameSelectedObject)
+            _hand.Vibrate(0.3f, 0.1f);  //Vibrate
+        _lastFrameSelectedObject = selectedObject;
+        
+        //Is button held down?
+        if (_hand.GetInputScheme().Hold.ReadValue<float>() < HoldButtonThreshold)
+            return;
+        
+        //Grab
+        heldObject = selectedObject;
+        heldObject.Grab(_hand);
+        _hand.Vibrate(0.1f, 0.1f);
     }
-    
+
     private void CheckWasReleased()
     {
-        if (_hand.GetInputScheme().Hold.ReadValue<float>() < _holdButtonThreshold)
+        if (_hand.GetInputScheme().Hold.ReadValue<float>() < HoldButtonThreshold)
         {
             heldObject.Release();
-            heldObject.holdingHand = null;
             heldObject = null;
         }
     }
+
+    private Collider ClosestTrigger()
+    {
+        Collider[] cols = Physics.OverlapBox(transform.position, new Vector3(TriggerSize, TriggerSize, TriggerSize),
+            Quaternion.identity, layers);
+
+        //Get closest trigger
+        Collider closestTrigger = null;
+        float closestDistance = float.MaxValue;
+        foreach (Collider trigger in cols)
+        {
+            float distance = Vector3.Distance(transform.position, trigger.gameObject.transform.position);
+            if (distance < closestDistance)
+            {
+                closestTrigger = trigger;
+                closestDistance = distance;
+            }
+        }
+
+        return closestTrigger;
+    }
+
+    //Draw the Box Overlap as a gizmo to show where it currently is testing. Click the Gizmos button to see this
+    void OnDrawGizmos()
+    {
+        Gizmos.color = Color.red;
+        //Draw a cube where the OverlapBox is (positioned where your GameObject is as well as a size)
+        Gizmos.DrawWireCube(transform.position, new Vector3(TriggerSize, TriggerSize, TriggerSize));
+    }
+
 }

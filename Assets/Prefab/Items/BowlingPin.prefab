@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 768139829984095821}
   - component: {fileID: 953340800433614051}
   - component: {fileID: 7099425824688096695}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -100,7 +100,7 @@ GameObject:
   - component: {fileID: 5048414642292638354}
   - component: {fileID: 8857042511794089803}
   - component: {fileID: 6783209350418348787}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: BowlingPin
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -139,10 +139,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   interactionPhysicsPhysicsMode: 0
-  actingChildObject: {fileID: 0}
+  actingTransform: {fileID: 0}
   handTriggers:
   - {fileID: 441822995389929403}
-  hand: {fileID: 0}
+  holdingHand: {fileID: 0}
 --- !u!65 &5020287055402425604
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -301,7 +301,7 @@ GameObject:
   - component: {fileID: 8019466049757704331}
   - component: {fileID: 1992885739601569484}
   - component: {fileID: 4861848826046577139}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: Detail
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -383,7 +383,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7405486614084903251}
   - component: {fileID: 441822995389929403}
-  m_Layer: 7
+  m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -413,7 +413,7 @@ BoxCollider:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6041312528320103997}
   m_Material: {fileID: 0}
-  m_IsTrigger: 1
+  m_IsTrigger: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
@@ -427,7 +427,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7197100663359911803}
-  m_Layer: 7
+  m_Layer: 11
   m_Name: model
   m_TagString: Untagged
   m_Icon: {fileID: 0}

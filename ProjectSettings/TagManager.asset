@@ -12,11 +12,11 @@ TagManager:
   - Water
   - UI
   - Player
-  - Grabbable
+  - 
   - HandPrecence
   - PostProcessing
-  - 
-  - 
+  - GrabbableTrigger
+  - Grabbable
   - 
   - 
   - 
