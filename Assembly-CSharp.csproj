@@ -58,11 +58,11 @@
      <Compile Include="Assets\Scipts\World\Bullet.cs" />
      <Compile Include="Assets\Scipts\World\Weapon.cs" />
      <Compile Include="Assets\Scipts\World\Joystick.cs" />
+     <Compile Include="Assets\Scipts\Multiplayer\NetworkTestHUD.cs" />
      <Compile Include="Assets\Scipts\World\PhysicsButton.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRHand.cs" />
      <Compile Include="Assets\Scipts\Sound\SoundManager.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
-     <Compile Include="Assets\Scipts\Multiplayer\NetworkTestHUD.cs" />
      <None Include="Assets\Material\dev\repeating.shader" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
