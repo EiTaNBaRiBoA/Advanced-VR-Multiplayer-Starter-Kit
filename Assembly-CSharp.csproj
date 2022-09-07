@@ -43,6 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scipts\Sound\Sound.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\ServerStatusPrompt.cs" />
+     <Compile Include="Assets\Scipts\PlayerController\VRHandObjectHolder.cs" />
      <Compile Include="Assets\Scipts\World\Lever.cs" />
      <Compile Include="Assets\Scipts\PlayerController\Grabbable.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRRig.cs" />
@@ -61,7 +62,7 @@
      <Compile Include="Assets\Scipts\PlayerController\VRHand.cs" />
      <Compile Include="Assets\Scipts\Sound\SoundManager.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
-     <Compile Include="Assets\Scipts\PlayerController\VRHandObjectHolder.cs" />
+     <Compile Include="Assets\Scipts\Multiplayer\NetworkTestHUD.cs" />
      <None Include="Assets\Material\dev\repeating.shader" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
