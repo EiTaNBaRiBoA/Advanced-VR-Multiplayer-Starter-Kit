@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 public class VRHandObjectHolder : MonoBehaviour
@@ -43,15 +44,33 @@ public class VRHandObjectHolder : MonoBehaviour
 
     private void CheckGrabbed()
     {
-        Collider trigger = ClosestTrigger();
+        Collider closestTrigger = ClosestTrigger();
 
-        if (trigger == null)
+        if (closestTrigger == null)
         {
             _lastFrameSelectedObject = null;
             return;
         }
+        
+        //Fetch all grabbables in parent
+        Grabbable[] grabbables = closestTrigger.gameObject.GetComponentsInParent<Grabbable>();
+        //Fetch which grabbable component trigger was assigned to
+        Grabbable selectedObject = null;
+        foreach (var grabbable in grabbables)
+        {
+            if(grabbable.handTriggers.Contains(closestTrigger));
+            {
+                selectedObject = grabbable;
+                break;
+            }
+        }
 
-        Grabbable selectedObject = trigger.gameObject.GetComponentInParent<Grabbable>();
+        //If no grabbable component was found, object is improperly configured
+        if (selectedObject == null)
+        {
+            Debug.LogError("Object with Grabbable Trigger had not been assigned in any Grabbable component");
+            return;
+        }
         
         //Check if just was Selected
         if(selectedObject != _lastFrameSelectedObject)
@@ -72,7 +91,7 @@ public class VRHandObjectHolder : MonoBehaviour
     {
         if (_hand.GetInputScheme().Hold.ReadValue<float>() < HoldButtonThreshold)
         {
-            heldObject.Release();
+            heldObject.Release(_hand);
             heldObject = null;
         }
     }
