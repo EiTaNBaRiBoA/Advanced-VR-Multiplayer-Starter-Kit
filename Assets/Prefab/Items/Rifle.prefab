@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 8266615530130270606}
   - component: {fileID: 762260245709657102}
-  - component: {fileID: 361774274742331239}
   m_Layer: 10
   m_Name: Trigger (1)
   m_TagString: Untagged
@@ -46,23 +45,6 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &361774274742331239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6078975240577583801}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: c30705f8ebe748e4688d80282fc718b2
-  hasSpawned: 0
 --- !u!1 &7400110586908667722
 GameObject:
   m_ObjectHideFlags: 0
@@ -458,9 +440,10 @@ MonoBehaviour:
   syncMode: 0
   syncInterval: 0.1
   interactionPhysicsPhysicsMode: 0
-  actingTransform: {fileID: 0}
-  handTriggers: []
-  holdingHand: {fileID: 0}
+  actingTransform: {fileID: 8492068254867204573}
+  handTriggers:
+  - {fileID: 7563017615068846560}
+  - {fileID: 762260245709657102}
 --- !u!114 &8538214876282107462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -539,8 +522,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1995660767295253100}
   - component: {fileID: 7563017615068846560}
-  - component: {fileID: 4680096756677133686}
-  - component: {fileID: 1021307522576638495}
   m_Layer: 10
   m_Name: Trigger
   m_TagString: Untagged
@@ -576,33 +557,3 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
---- !u!114 &4680096756677133686
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8637178885074028949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 18c80d356977b0345be1c0d132cc8894, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  grabbable: {fileID: 8297024607721611706}
---- !u!114 &1021307522576638495
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8637178885074028949}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: c30705f8ebe748e4688d80282fc718b2
-  hasSpawned: 0

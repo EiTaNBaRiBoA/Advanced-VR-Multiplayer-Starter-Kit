@@ -38,7 +38,6 @@ public class VRHandObjectHolder : MonoBehaviour
             return;
         }
         
-        heldObject.MoveToHoldingHand();
         CheckWasReleased();
     }
 
@@ -72,6 +71,10 @@ public class VRHandObjectHolder : MonoBehaviour
             return;
         }
         
+        //If collider is already held by another hand, return
+        if(selectedObject.handTriggerTracker.ContainsValue(closestTrigger))
+            return;
+        
         //Check if just was Selected
         if(selectedObject != _lastFrameSelectedObject)
             _hand.Vibrate(0.3f, 0.1f);  //Vibrate
@@ -83,7 +86,7 @@ public class VRHandObjectHolder : MonoBehaviour
         
         //Grab
         heldObject = selectedObject;
-        heldObject.Grab(_hand);
+        heldObject.Grab(_hand, closestTrigger);
         _hand.Vibrate(0.1f, 0.1f);
     }
 

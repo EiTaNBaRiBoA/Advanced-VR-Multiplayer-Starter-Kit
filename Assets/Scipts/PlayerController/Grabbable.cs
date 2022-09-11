@@ -1,6 +1,7 @@
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using Mirror;
 using UnityEngine;
 using UnityEngine.Serialization;
@@ -13,7 +14,7 @@ public class Grabbable : NetworkBehaviour
     public Transform actingTransform;
     public Collider[] handTriggers;
     [Space]
-    public VRHand holdingHand;
+    public Dictionary<VRHand, Collider> handTriggerTracker = new();
     
     private Rigidbody _rb;
 
@@ -32,41 +33,67 @@ public class Grabbable : NetworkBehaviour
             Debug.LogWarning("Grabbable object " + gameObject.name + " doesn't have any trigger colliders!");
     }
 
-    public void MoveToHoldingHand()
+    private void Update()
     {
         if(!hasAuthority)
             return;
 
-        if (interactionPhysicsPhysicsMode == InteractionPhysicsMode.Kinematic)
+        if (handTriggerTracker.Count > 0)
         {
-            _rb.isKinematic = true;
-            actingTransform.position = holdingHand.transform.position;
-            actingTransform.rotation = holdingHand.transform.rotation;
-        }
-        
-        if (interactionPhysicsPhysicsMode == InteractionPhysicsMode.VelocityTracking)
-        {
-            _rb.velocity = holdingHand.EstimateVelocity();
+            if (interactionPhysicsPhysicsMode == InteractionPhysicsMode.Kinematic)
+                MoveToHoldingHand();
+            if (interactionPhysicsPhysicsMode == InteractionPhysicsMode.VelocityTracking)
+                MimicHandVelocity();
         }
     }
 
-    public void Grab(VRHand hand)
+    private void MoveToHoldingHand()
     {
-        holdingHand = hand;
+        _rb.isKinematic = true;
+        
+        VRHand firstHand = handTriggerTracker.Keys.ToList()[0];
+        Transform firstColliderTransform = handTriggerTracker[firstHand].transform;
+        
+        Vector3 deltaPosition = firstColliderTransform.position - firstHand.transform.position;
+        actingTransform.position -= deltaPosition;
+        actingTransform.rotation = firstHand.transform.rotation;    //TODO based on collider aligment
+
+        if (handTriggerTracker.Count == 2)
+        {
+            VRHand secondHand = handTriggerTracker.Keys.ToList()[1];
+            Transform secondColliderTransform = handTriggerTracker[secondHand].transform;
+            Vector3 lookAtPosition = secondHand.transform.position - actingTransform.position;
+            actingTransform.rotation = Quaternion.LookRotation(lookAtPosition,firstHand.transform.up);
+        }
+    }
+
+    private void MimicHandVelocity()
+    {
+        if (handTriggerTracker.Count > 0)
+            Debug.LogWarning(gameObject.name + " grabbable has multiple triggers but is in " +
+                             "Velocity tracking mode, using exclusively the first hand that grabs");
+        
+        _rb.velocity = handTriggerTracker.Keys.ToList()[0].EstimateVelocity();
+    }
+
+    public void Grab(VRHand hand, Collider triggerCollider)
+    {
+        handTriggerTracker.Add(hand, triggerCollider);
         ClaimAuthority();
     }
     
-    public void Release()
+    public void Release(VRHand hand)
     {
+        //TODO only when all hands are gone
         //If physics mode was kinematic, simulate a throw
         if(interactionPhysicsPhysicsMode == InteractionPhysicsMode.Kinematic)
         {
             _rb.isKinematic = false;
-            _rb.angularVelocity = holdingHand.EstimateAngularVelocity();
-            _rb.velocity = holdingHand.EstimateVelocity();
+            _rb.angularVelocity = hand.EstimateAngularVelocity();
+            _rb.velocity = hand.EstimateVelocity();
         }
-        
-        holdingHand = null;
+
+        handTriggerTracker.Remove(hand);
     }
     
     [Command(requiresAuthority = false)]
