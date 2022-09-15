@@ -56,7 +56,10 @@ public class Grabbable : NetworkBehaviour
         
         Vector3 deltaPosition = firstColliderTransform.position - firstHand.transform.position;
         actingTransform.position -= deltaPosition;
-        actingTransform.rotation = firstHand.transform.rotation;    //TODO based on collider aligment
+        
+        Quaternion colliderRotationOffset = Quaternion.Inverse(transform.rotation) * firstColliderTransform.rotation;
+        Quaternion handRotation = firstHand.transform.rotation;
+        actingTransform.rotation = handRotation*colliderRotationOffset;
 
         if (handTriggerTracker.Count == 2)
         {
