@@ -49,6 +49,8 @@ public class Grabbable : NetworkBehaviour
 
     private void MoveToHoldingHand()
     {
+        //Quaternion tips: https://wirewhiz.com/quaternion-tips/
+        
         _rb.isKinematic = true;
         
         VRHand firstHand = handTriggerTracker.Keys.ToList()[0];
@@ -57,9 +59,10 @@ public class Grabbable : NetworkBehaviour
         Vector3 deltaPosition = firstColliderTransform.position - firstHand.transform.position;
         actingTransform.position -= deltaPosition;
         
-        Quaternion colliderRotationOffset = Quaternion.Inverse(transform.rotation) * firstColliderTransform.rotation;
+        Quaternion colliderRotationOffset = Quaternion.Inverse(actingTransform.rotation) * firstColliderTransform.rotation;
         Quaternion handRotation = firstHand.transform.rotation;
-        actingTransform.rotation = handRotation*colliderRotationOffset;
+        Quaternion adjustedHandRotation = handRotation * colliderRotationOffset;
+        actingTransform.rotation = adjustedHandRotation;
 
         if (handTriggerTracker.Count == 2)
         {
