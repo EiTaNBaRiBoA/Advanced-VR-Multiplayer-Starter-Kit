@@ -56,13 +56,13 @@ public class VRHandObjectHolder : MonoBehaviour
         //Fetch which grabbable component trigger was assigned to
         Grabbable selectedObject = null;
         foreach (var grabbable in grabbables)
-        {
-            if(grabbable.handTriggers.Contains(closestTrigger));
-            {
-                selectedObject = grabbable;
-                break;
-            }
-        }
+            //List contains gives faulty results
+            foreach (var trigger in grabbable.handTriggers)
+                if (trigger.Equals(closestTrigger))
+                {
+                    selectedObject = grabbable;
+                    break;
+                }
 
         //If no grabbable component was found, object is improperly configured
         if (selectedObject == null)
