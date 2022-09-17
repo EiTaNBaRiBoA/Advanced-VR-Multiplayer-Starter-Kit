@@ -63,6 +63,7 @@
      <Compile Include="Assets\Scipts\PlayerController\VRHand.cs" />
      <Compile Include="Assets\Scipts\Sound\SoundManager.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
+     <Compile Include="Assets\Slide.cs" />
      <None Include="Assets\Material\dev\repeating.shader" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
