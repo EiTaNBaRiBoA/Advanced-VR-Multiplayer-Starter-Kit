@@ -66,10 +66,24 @@ public class Grabbable : NetworkBehaviour
 
         if (handTriggerTracker.Count == 2)
         {
+            //Fetch objects
             VRHand secondHand = handTriggerTracker.Keys.ToList()[1];
             Transform secondColliderTransform = handTriggerTracker[secondHand].transform;
-            Vector3 lookAtPosition = secondHand.transform.position - actingTransform.position;
-            actingTransform.rotation = Quaternion.LookRotation(lookAtPosition,firstHand.transform.up);
+            
+            //Calculate direction from first hand to second collider
+            Vector3 secondColliderRelativePosition = (secondColliderTransform.transform.position - firstHand.transform.position);
+            Quaternion colliderDirection = Quaternion.LookRotation(secondColliderRelativePosition);
+            
+            //Calculate difference (offset) between collider direction and forward (handle offset)
+            Quaternion forwardDirection = Quaternion.LookRotation(actingTransform.forward);
+            Quaternion colliderDirectionOffset = forwardDirection * Quaternion.Inverse(colliderDirection);
+            
+            //Calculate direction from first hand to second hand
+            Vector3 secondHandRelativePosition = (secondHand.transform.position - firstHand.transform.position);
+            Quaternion secondHandDirection = Quaternion.LookRotation(secondHandRelativePosition, firstHand.transform.up);
+            Quaternion adjustedSecondHandDirection = secondHandDirection * colliderDirectionOffset;
+            
+            actingTransform.rotation = adjustedSecondHandDirection;
         }
     }
 
