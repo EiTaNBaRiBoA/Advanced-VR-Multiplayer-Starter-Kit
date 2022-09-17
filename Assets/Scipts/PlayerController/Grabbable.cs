@@ -50,8 +50,8 @@ public class Grabbable : NetworkBehaviour
     private void MoveToHoldingHand()
     {
         //Quaternion tips: https://wirewhiz.com/quaternion-tips/
-        
-        _rb.isKinematic = true;
+        if(_rb != null)
+            _rb.isKinematic = true;
         
         VRHand firstHand = handTriggerTracker.Keys.ToList()[0];
         Transform firstColliderTransform = handTriggerTracker[firstHand].transform;
@@ -98,6 +98,7 @@ public class Grabbable : NetworkBehaviour
 
     public void Grab(VRHand hand, Collider triggerCollider)
     {
+        print(actingTransform.name + " " + hand.handSide);
         handTriggerTracker.Add(hand, triggerCollider);
         ClaimAuthority();
     }
@@ -105,8 +106,9 @@ public class Grabbable : NetworkBehaviour
     public void Release(VRHand hand)
     {
         //TODO only when all hands are gone
+        
         //If physics mode was kinematic, simulate a throw
-        if(interactionPhysicsPhysicsMode == InteractionPhysicsMode.Kinematic)
+        if(_rb != null && interactionPhysicsPhysicsMode == InteractionPhysicsMode.Kinematic)
         {
             _rb.isKinematic = false;
             _rb.angularVelocity = hand.EstimateAngularVelocity();
