@@ -98,7 +98,6 @@ public class Grabbable : NetworkBehaviour
 
     public void Grab(VRHand hand, Collider triggerCollider)
     {
-        print(actingTransform.name + " " + hand.handSide);
         handTriggerTracker.Add(hand, triggerCollider);
         ClaimAuthority();
     }
