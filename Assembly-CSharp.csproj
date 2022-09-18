@@ -65,6 +65,10 @@
      <Compile Include="Assets\Scipts\Sound\SoundManager.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\NetworkObjectRegisterer.cs" />
+     <Compile Include="Assets\Damageable.cs" />
+     <Compile Include="Assets\PlayerRespawnChecker.cs" />
+     <Compile Include="Assets\SpawnpointManager.cs" />
+     <Compile Include="Assets\HideOnAuthority.cs" />
      <None Include="Assets\Material\dev\repeating.shader" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
