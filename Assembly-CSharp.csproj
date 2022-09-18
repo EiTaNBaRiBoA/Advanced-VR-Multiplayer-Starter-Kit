@@ -46,6 +46,7 @@
      <Compile Include="Assets\Scipts\PlayerController\VRHandObjectHolder.cs" />
      <Compile Include="Assets\Scipts\World\Lever.cs" />
      <Compile Include="Assets\Scipts\PlayerController\Grabbable.cs" />
+     <Compile Include="Assets\SlideInterfacer.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRRig.cs" />
      <Compile Include="Assets\Scipts\World\DemoBowlingAlley.cs" />
      <Compile Include="Assets\Scipts\PlayerController\PlayerMovement.cs" />
@@ -58,21 +59,19 @@
      <Compile Include="Assets\Scipts\World\Bullet.cs" />
      <Compile Include="Assets\Scipts\World\Weapon.cs" />
      <Compile Include="Assets\Scipts\World\Joystick.cs" />
-     <Compile Include="Assets\Scipts\Multiplayer\NetworkTestHUD.cs" />
+     <Compile Include="Assets\Scipts\Multiplayer\NetworkAutoconnector.cs" />
      <Compile Include="Assets\Scipts\World\PhysicsButton.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRHand.cs" />
      <Compile Include="Assets\Scipts\Sound\SoundManager.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
-     <Compile Include="Assets\Slide.cs" />
+     <Compile Include="Assets\Scipts\Multiplayer\NetworkObjectRegisterer.cs" />
      <None Include="Assets\Material\dev\repeating.shader" />
      <None Include="Assets\Mirror\Version.txt" />
      <None Include="Assets\Mirror\Readme.txt" />
      <None Include="Assets\ParrelSync\VERSION.txt" />
-     <None Include="Assets\Free Stylized Skybox\ReadMe.txt" />
+     <None Include="Assets\Material\Free Stylized Skybox\ReadMe.txt" />
      <None Include="Assets\Mirror\Notice.txt" />
      <None Include="Assets\Mirror\Plugins\Mono.Cecil\License.txt" />
-     <None Include="Assets\Samples\Polybrush\1.0.2\Shader Examples (Standard)\Shader\StandardVertexColor.shader" />
-     <None Include="Assets\Samples\Polybrush\1.0.2\Shader Examples (Standard)\Shader\StandardTextureBlend.shader" />
      <Reference Include="UnityEngine">
      <HintPath>D:\Unity\2021.3.4f1\Editor\Data\Managed\UnityEngine\UnityEngine.dll</HintPath>
      </Reference>

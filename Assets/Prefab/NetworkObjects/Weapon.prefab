@@ -419,8 +419,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08162e95bb9f7724a8d9865d75e9493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backZPos: 0
-  normalZPos: 0
+  pullLength: 0
   animator: {fileID: 0}
 --- !u!1 &7848681382653597518
 GameObject:
@@ -529,7 +528,6 @@ GameObject:
   m_Component:
   - component: {fileID: 7870181374242599728}
   - component: {fileID: 7428392033868178939}
-  - component: {fileID: 3529805617501012577}
   - component: {fileID: 7870181374242599731}
   - component: {fileID: 4970444086658734722}
   - component: {fileID: 7870181374242599730}
@@ -580,21 +578,6 @@ MonoBehaviour:
   syncInterval: 0.1
   bulletPrefab: {fileID: 7011577323704750214, guid: cc8f6105fec64464a943513d7cd91504, type: 3}
   bulletSpawn: {fileID: 8103191687824957262}
---- !u!114 &3529805617501012577
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7870181374242599732}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 08162e95bb9f7724a8d9865d75e9493e, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  backZPos: 0
-  normalZPos: 0
-  animator: {fileID: 0}
 --- !u!114 &7870181374242599731
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -940,8 +923,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 08162e95bb9f7724a8d9865d75e9493e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  backZPos: -0.05
-  normalZPos: 0
+  pullLength: 0.05
   animator: {fileID: 4285202772389758709}
 --- !u!1 &9203272363639794554
 GameObject:
