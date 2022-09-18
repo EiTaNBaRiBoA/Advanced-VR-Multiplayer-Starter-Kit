@@ -23,7 +23,7 @@ public class Joystick : NetworkBehaviour
         if (!hasAuthority)
             return;
 
-        if(resetWhenReleased && GetComponent<Grabbable>().holdingHand == null)
+        if(resetWhenReleased && GetComponent<Grabbable>().GetHand() == null)
             stick.localPosition = new Vector3(0, stick.localPosition.y, 0);
     }
 
