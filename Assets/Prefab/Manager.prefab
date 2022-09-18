@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3749997586942041479}
   - component: {fileID: 3749997586942041478}
   - component: {fileID: 3749997586942041473}
+  - component: {fileID: 7954299418991394241}
   - component: {fileID: 3749997586942041472}
   - component: {fileID: 6216730623681568060}
   m_Layer: 0
@@ -61,14 +62,7 @@ MonoBehaviour:
   playerPrefab: {fileID: 6501779739083778404, guid: efdfdfa83a0479d4abf9a9d9959d889d, type: 3}
   autoCreatePlayer: 1
   playerSpawnMethod: 0
-  spawnPrefabs:
-  - {fileID: 5020287055402425606, guid: eb2776838a1fcf246bb9ec98d25b536b, type: 3}
-  - {fileID: 5020287055402425606, guid: 84605150d6a55504da8790e082915e8b, type: 3}
-  - {fileID: 5239436241437963824, guid: e8f68526de6a974469c3e4cf94a457f8, type: 3}
-  - {fileID: 2215513142875961350, guid: d506a1ba3ed99ac4a8b3a7ac5f886cff, type: 3}
-  - {fileID: 5797569823319140024, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
-  - {fileID: 7011577323704750214, guid: cc8f6105fec64464a943513d7cd91504, type: 3}
-  - {fileID: 8492068254867204562, guid: c30705f8ebe748e4688d80282fc718b2, type: 3}
+  spawnPrefabs: []
 --- !u!114 &3749997586942041473
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -94,6 +88,18 @@ MonoBehaviour:
   debugLog: 0
   statisticsGUI: 0
   statisticsLog: 0
+--- !u!114 &7954299418991394241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3749997586942041475}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 31f4fbae86f93b248901dc47d5a940c9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &3749997586942041472
 MonoBehaviour:
   m_ObjectHideFlags: 0
