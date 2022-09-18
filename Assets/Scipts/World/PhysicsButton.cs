@@ -3,14 +3,17 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PhysicsButton : MonoBehaviour
 {
     public bool pressed;
     public float threshold;
+    public UnityEvent wasPressedEvent;
 
     private Vector3 _startPos;
     private ConfigurableJoint _joint;
+    private float _lastPressed;
     
     private void Start()
     {
@@ -22,6 +25,13 @@ public class PhysicsButton : MonoBehaviour
     void Update()
     {
         pressed = GetValue() > threshold;
+        
+        if (pressed && Time.time - _lastPressed > 1)
+        {
+            wasPressedEvent.Invoke();
+            
+            _lastPressed = Time.time;
+        }
     }
 
     private float GetValue()
