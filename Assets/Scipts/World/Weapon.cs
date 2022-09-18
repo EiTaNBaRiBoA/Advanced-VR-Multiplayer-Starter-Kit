@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
+[RequireComponent(typeof(Grabbable))]
 public class Weapon : NetworkBehaviour
 {
     public GameObject bulletPrefab;
