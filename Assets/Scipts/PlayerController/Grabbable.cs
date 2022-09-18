@@ -14,7 +14,7 @@ public class Grabbable : NetworkBehaviour
     public Transform actingTransform;
     public Collider[] handTriggers;
     [Space]
-    public Dictionary<VRHand, Collider> handTriggerTracker = new();
+    public Dictionary<VRHand, Collider> heldTriggers = new();
     
     private Rigidbody _rb;
 
@@ -38,67 +38,22 @@ public class Grabbable : NetworkBehaviour
         if(!hasAuthority)
             return;
 
-        if (handTriggerTracker.Count > 0)
+        if (heldTriggers.Count > 0)
         {
             if (interactionPhysicsPhysicsMode == InteractionPhysicsMode.Kinematic)
+            {
                 MoveToHoldingHand();
+                if (heldTriggers.Count == 2)
+                    AdjustRotationToSupportHand();
+            }
             if (interactionPhysicsPhysicsMode == InteractionPhysicsMode.VelocityTracking)
                 MimicHandVelocity();
         }
     }
 
-    private void MoveToHoldingHand()
-    {
-        //Quaternion tips: https://wirewhiz.com/quaternion-tips/
-        if(_rb != null)
-            _rb.isKinematic = true;
-        
-        VRHand firstHand = handTriggerTracker.Keys.ToList()[0];
-        Transform firstColliderTransform = handTriggerTracker[firstHand].transform;
-        
-        Vector3 deltaPosition = firstColliderTransform.position - firstHand.transform.position;
-        actingTransform.position -= deltaPosition;
-        
-        Quaternion colliderRotationOffset = Quaternion.Inverse(actingTransform.rotation) * firstColliderTransform.rotation;
-        Quaternion handRotation = firstHand.transform.rotation;
-        Quaternion adjustedHandRotation = handRotation * colliderRotationOffset;
-        actingTransform.rotation = adjustedHandRotation;
-
-        if (handTriggerTracker.Count == 2)
-        {
-            //Fetch objects
-            VRHand secondHand = handTriggerTracker.Keys.ToList()[1];
-            Transform secondColliderTransform = handTriggerTracker[secondHand].transform;
-            
-            //Calculate direction from first hand to second collider
-            Vector3 secondColliderRelativePosition = (secondColliderTransform.transform.position - firstHand.transform.position);
-            Quaternion colliderDirection = Quaternion.LookRotation(secondColliderRelativePosition);
-            
-            //Calculate difference (offset) between collider direction and forward (handle offset)
-            Quaternion forwardDirection = Quaternion.LookRotation(actingTransform.forward);
-            Quaternion colliderDirectionOffset = forwardDirection * Quaternion.Inverse(colliderDirection);
-            
-            //Calculate direction from first hand to second hand
-            Vector3 secondHandRelativePosition = (secondHand.transform.position - firstHand.transform.position);
-            Quaternion secondHandDirection = Quaternion.LookRotation(secondHandRelativePosition, firstHand.transform.up);
-            Quaternion adjustedSecondHandDirection = secondHandDirection * colliderDirectionOffset;
-            
-            actingTransform.rotation = adjustedSecondHandDirection;
-        }
-    }
-
-    private void MimicHandVelocity()
-    {
-        if (handTriggerTracker.Count > 0)
-            Debug.LogWarning(gameObject.name + " grabbable has multiple triggers but is in " +
-                             "Velocity tracking mode, using exclusively the first hand that grabs");
-        
-        _rb.velocity = handTriggerTracker.Keys.ToList()[0].EstimateVelocity();
-    }
-
     public void Grab(VRHand hand, Collider triggerCollider)
     {
-        handTriggerTracker.Add(hand, triggerCollider);
+        heldTriggers.Add(hand, triggerCollider);
         ClaimAuthority();
     }
     
@@ -114,7 +69,36 @@ public class Grabbable : NetworkBehaviour
             _rb.velocity = hand.EstimateVelocity();
         }
 
-        handTriggerTracker.Remove(hand);
+        heldTriggers.Remove(hand);
+    }
+
+    public VRHand[] GetHands()
+    {
+        return heldTriggers.Keys.ToArray();
+    }
+    
+    public VRHand GetHand()
+    {
+        VRHand[] hands = GetHands();
+        if (hands.Length == 0)
+            return null;
+        
+        return hands[0];
+    }
+
+    public VRHand GetHandForTriggerId(int triggerId)
+    {
+        if (triggerId >= handTriggers.Length)
+            return null;
+
+        Collider trigger = handTriggers[triggerId];
+        foreach(var pair in heldTriggers)
+        {
+            if (pair.Value.Equals(trigger))
+                return pair.Key;
+        }
+            
+        return null;
     }
     
     [Command(requiresAuthority = false)]
@@ -122,6 +106,57 @@ public class Grabbable : NetworkBehaviour
     {
         netIdentity.RemoveClientAuthority();
         netIdentity.AssignClientAuthority(sender);
+    }
+
+    private void MoveToHoldingHand()
+    {
+        if(_rb != null)
+            _rb.isKinematic = true;
+        
+        VRHand firstHand = GetHands()[0];
+        Transform firstColliderTransform = heldTriggers[firstHand].transform;
+        
+        Vector3 deltaPosition = firstColliderTransform.position - firstHand.transform.position;
+        actingTransform.position -= deltaPosition;
+        
+        Quaternion colliderRotationOffset = Quaternion.Inverse(actingTransform.rotation) * firstColliderTransform.rotation;
+        Quaternion handRotation = firstHand.transform.rotation;
+        Quaternion adjustedHandRotation = handRotation * colliderRotationOffset;
+        actingTransform.rotation = adjustedHandRotation;
+    }
+
+    private void AdjustRotationToSupportHand()
+    {        
+        //Quaternion tips: https://wirewhiz.com/quaternion-tips/
+
+        //Fetch objects
+        Transform firstHand = GetHands()[0].transform;
+        VRHand secondHand = GetHands()[1];
+        Transform secondColliderTransform = heldTriggers[secondHand].transform;
+            
+        //Calculate direction from first hand to second collider
+        Vector3 secondColliderRelativePosition = (secondColliderTransform.transform.position - firstHand.position);
+        Quaternion colliderDirection = Quaternion.LookRotation(secondColliderRelativePosition);
+            
+        //Calculate difference (offset) between collider direction and forward (handle offset)
+        Quaternion forwardDirection = Quaternion.LookRotation(actingTransform.forward);
+        Quaternion colliderDirectionOffset = forwardDirection * Quaternion.Inverse(colliderDirection);
+            
+        //Calculate direction from first hand to second hand
+        Vector3 secondHandRelativePosition = (secondHand.transform.position - firstHand.position);
+        Quaternion secondHandDirection = Quaternion.LookRotation(secondHandRelativePosition, firstHand.up);
+        Quaternion adjustedSecondHandDirection = secondHandDirection * colliderDirectionOffset;
+            
+        actingTransform.rotation = adjustedSecondHandDirection;
+    }
+
+    private void MimicHandVelocity()
+    {
+        if (heldTriggers.Count > 0)
+            Debug.LogWarning(gameObject.name + " grabbable has multiple triggers but is in " +
+                             "Velocity tracking mode, using exclusively the first hand that grabs");
+        
+        _rb.velocity = GetHands()[0].EstimateVelocity();
     }
 }
 

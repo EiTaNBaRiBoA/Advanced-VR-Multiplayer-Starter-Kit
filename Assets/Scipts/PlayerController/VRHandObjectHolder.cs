@@ -72,7 +72,7 @@ public class VRHandObjectHolder : MonoBehaviour
         }
         
         //If collider is already held by another hand, return
-        if(selectedObject.handTriggerTracker.ContainsValue(closestTrigger))
+        if(selectedObject.heldTriggers.ContainsValue(closestTrigger))
             return;
         
         //Check if just was Selected
