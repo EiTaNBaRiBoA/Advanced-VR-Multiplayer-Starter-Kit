@@ -4,7 +4,7 @@ using Mirror;
 using ParrelSync;
 using UnityEngine;
 
-public class NetworkTestHUD : MonoBehaviour
+public class NetworkAutoconnector : MonoBehaviour
 {
     
     // Start is called before the first frame update
