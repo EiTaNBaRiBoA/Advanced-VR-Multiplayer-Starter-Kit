@@ -12,6 +12,8 @@ public class Weapon : NetworkBehaviour
     private Grabbable _grabbable;
     private bool _waitForReset;
 
+    private float _debugTime;
+    
     // Update is called once per frame
     void Update()
     {
@@ -45,6 +47,8 @@ public class Weapon : NetworkBehaviour
     {
         GameObject obj = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         NetworkServer.Spawn(obj);
+        
+        SoundManager.instance.Play("Shoot", bulletSpawn.position);
         StartCoroutine(TactileVibrationTest());
     }
 
