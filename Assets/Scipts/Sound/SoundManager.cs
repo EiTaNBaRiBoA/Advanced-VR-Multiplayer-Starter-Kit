@@ -46,6 +46,8 @@ public class SoundManager : NetworkBehaviour
         source.volume = sound.volume;
         source.pitch = pitch;
         source.loop = sound.loop;
+        source.minDistance = sound.minDistance;
+        source.maxDistance = sound.maxDistance;
         
         obj.transform.position = position;
         source.Play();

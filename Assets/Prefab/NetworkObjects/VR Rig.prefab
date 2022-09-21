@@ -371,6 +371,7 @@ GameObject:
   - component: {fileID: 5601916703355076328}
   - component: {fileID: 2748596903535791323}
   - component: {fileID: 1193760367612632964}
+  - component: {fileID: -3096506555245843551}
   - component: {fileID: 5600757686918392018}
   - component: {fileID: 4341634590212235460}
   - component: {fileID: 5979950915806779686}
@@ -472,6 +473,19 @@ MonoBehaviour:
   destroyedAuthorityEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!114 &-3096506555245843551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501779739083778404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d3ece1b3e11371847a3aaec8733d0644, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  distancePerSound: 0.8
 --- !u!114 &5600757686918392018
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -23,6 +23,7 @@ public class Bullet : MonoBehaviour
             damageable.TakeDamage(damage);
         }
         
+        SoundManager.instance.Play("Bullet Hit", transform.position);
         Destroy(gameObject);
     }
 }

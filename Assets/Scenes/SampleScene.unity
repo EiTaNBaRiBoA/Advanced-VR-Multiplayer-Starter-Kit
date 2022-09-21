@@ -8705,19 +8705,34 @@ MonoBehaviour:
   syncInterval: 0.1
   soundPrefab: {fileID: 4716670077782764667, guid: 697649916fc09614693892c9ea1d79c5, type: 3}
   sounds:
-  - name: 
-    minRandomPitch: 0
-    maxRandomPitch: 0
-    volume: 0
-    clips:
-    - {fileID: 8300000, guid: b5e06a3207d57b3459568f2754056117, type: 3}
-    loop: 0
   - name: Shoot
     minRandomPitch: 0.9
     maxRandomPitch: 1.1
+    minDistance: 2
+    maxDistance: 10
     volume: 1
     clips:
     - {fileID: 8300000, guid: b5e06a3207d57b3459568f2754056117, type: 3}
+    loop: 0
+  - name: Bullet Hit
+    minRandomPitch: 0.8
+    maxRandomPitch: 1.2
+    minDistance: 2
+    maxDistance: 7
+    volume: 1
+    clips:
+    - {fileID: 8300000, guid: f05906495d3bb3242ad6001313561ae9, type: 3}
+    loop: 0
+  - name: Footstep
+    minRandomPitch: 0.8
+    maxRandomPitch: 1.2
+    minDistance: 2
+    maxDistance: 3
+    volume: 0.25
+    clips:
+    - {fileID: 8300000, guid: 998fb85a52e066c4bad803504a8bea63, type: 3}
+    - {fileID: 8300000, guid: c7b32c39231019248991f97ee19ed98c, type: 3}
+    - {fileID: 8300000, guid: d3a7bc2161cc0e44eaa9a9501b552247, type: 3}
     loop: 0
 --- !u!114 &1998054425
 MonoBehaviour:
@@ -9578,10 +9593,6 @@ PrefabInstance:
     - target: {fileID: 3749997586942041475, guid: 519ba1bfcb873d3439b2cc3a9b877585, type: 3}
       propertyPath: m_Name
       value: Manager
-      objectReference: {fileID: 0}
-    - target: {fileID: 3749997586942041478, guid: 519ba1bfcb873d3439b2cc3a9b877585, type: 3}
-      propertyPath: m_Enabled
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3749997586942041479, guid: 519ba1bfcb873d3439b2cc3a9b877585, type: 3}
       propertyPath: m_RootOrder
