@@ -5,27 +5,15 @@ using UnityEngine;
 
 public class ItemSpawner : MonoBehaviour
 {
-    public List<GameObject> prefabs = new List<GameObject>();
-    public List<PhysicsButton> buttons = new List<PhysicsButton>();
+    public GameObject prefab;
+    public Transform spawn;
     
-    // Update is called once per frame
-    void Update()
+    public void Spawn()
     {
         if (NetworkManager.singleton.mode == NetworkManagerMode.ClientOnly)
             return;
-
-        for (int i = 0; i < buttons.Count; i++)
-        {
-            if (buttons[i].pressed)
-            {
-                Spawn(prefabs[i]);
-            }
-        }
-    }
-
-    public void Spawn(GameObject prefab)
-    {
-        GameObject obj = Instantiate(prefab, transform.position, Quaternion.identity);
+        
+        GameObject obj = Instantiate(prefab, spawn.position, Quaternion.identity);
         NetworkServer.Spawn(obj);
     }
 }
