@@ -1,21 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.IO;
 using Mirror;
-using ParrelSync;
 using UnityEngine;
 
 public class NetworkAutoconnector : MonoBehaviour
 {
-    
     // Start is called before the first frame update
     void Start()
     {
-        NetworkManager manager = GetComponent<NetworkManager>();
-        bool isClone = ClonesManager.IsClone();
+        string hostFile = Application.dataPath + "/../.host";
         
-        if(isClone)
-            manager.StartClient();
-        else
+        NetworkManager manager = GetComponent<NetworkManager>();
+        bool host = Application.isEditor && File.Exists(hostFile);
+
+        if (host)
             manager.StartHost();
+        else
+            manager.StartClient();
     }
 }
