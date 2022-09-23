@@ -10,7 +10,6 @@ public class VRRig : NetworkBehaviour
 {
     //TODO hanging lamps
     //TODO trackers
-    //TODO guns
     //TODO light sabers
     //TODO joysticks
     //TODO noerico
