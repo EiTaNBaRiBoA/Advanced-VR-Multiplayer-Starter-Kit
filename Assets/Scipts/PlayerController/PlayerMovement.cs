@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Numerics;
@@ -10,22 +11,38 @@ public class PlayerMovement : NetworkBehaviour
 {
     public float acceleration;
     public float maxVelocity;
+    public float maxSlopeAngle;
+    public float groundDrag;
+    [Space]
     public Transform forwardTransform;
-    
+
+    [HideInInspector] public bool grounded;
+    private RaycastHit _groundRaycast;
+    private Rigidbody _rb;
+
+    private void Start()
+    {
+        _rb = GetComponent<Rigidbody>();
+    }
+
     // Update is called once per frame
     void Update()
     {
         if (!hasAuthority)
             return;
-
-        TryMove(); 
+        
+        GroundCheck();
+        _rb.useGravity = !IsOnSlope();
+        _rb.drag = grounded ? groundDrag : 0;//TODO refractor
+        if (grounded)
+        {
+            TryMove();
+        }
     }
 
     private void TryMove()
     {
-        Rigidbody rb = GetComponent<Rigidbody>();
-        
-        if(rb.velocity.magnitude > maxVelocity)
+        if(_rb.velocity.magnitude > maxVelocity)
             return;
         
         //Get raw controller input
@@ -50,8 +67,30 @@ public class PlayerMovement : NetworkBehaviour
             new Vector3(rightDirection.x * moveInput.x, 0, rightDirection.z * moveInput.x) + 
             new Vector3(forwardDirection.x * moveInput.y, 0, forwardDirection.z * moveInput.y);
         
+        if (IsOnSlope())
+        {
+            mappedDirection = SlopeProjectDirection(mappedDirection);
+        }
+        
         //Multiply by acceleration
-        Vector3 finalVelocity = mappedDirection * acceleration * Time.deltaTime;
-        rb.AddForce(finalVelocity, ForceMode.Acceleration);
+        Vector3 finalAcceleration = mappedDirection * acceleration * Time.deltaTime;
+        _rb.AddForce(finalAcceleration, ForceMode.Acceleration);//TODO movement works?
+    }
+
+    private void GroundCheck()
+    {
+        grounded = Physics.Raycast(transform.position, Vector3.down, out _groundRaycast, 0.5f);
+    }
+    
+    private bool IsOnSlope()
+    {
+        //https://youtu.be/xCxSjgYTw9c
+        float angle = Vector3.Angle(Vector3.up, _groundRaycast.normal);
+        return angle < maxSlopeAngle && angle != 0;
+    }
+
+    private Vector3 SlopeProjectDirection(Vector3 flatDirection)
+    {
+        return Vector3.ProjectOnPlane(flatDirection, _groundRaycast.normal);
     }
 }
