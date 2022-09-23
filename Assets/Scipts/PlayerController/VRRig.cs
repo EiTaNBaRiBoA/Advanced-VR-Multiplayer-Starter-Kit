@@ -8,12 +8,6 @@ using InputDevice = UnityEngine.InputSystem.InputDevice;
 
 public class VRRig : NetworkBehaviour
 {
-    //TODO hanging lamps
-    //TODO trackers
-    //TODO light sabers
-    //TODO joysticks
-    //TODO noerico
-
     public Transform cameraOffset;
     public float triggerCameraRecenterDistance;
     public Controls HeadControlSource;
