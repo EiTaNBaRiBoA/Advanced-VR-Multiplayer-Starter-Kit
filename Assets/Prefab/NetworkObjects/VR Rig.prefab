@@ -368,8 +368,8 @@ GameObject:
   m_Component:
   - component: {fileID: 6501779739083778405}
   - component: {fileID: 6501779739083778406}
-  - component: {fileID: 5601916703355076328}
   - component: {fileID: 2748596903535791323}
+  - component: {fileID: 5601916703355076328}
   - component: {fileID: 1193760367612632964}
   - component: {fileID: -3096506555245843551}
   - component: {fileID: 5600757686918392018}
@@ -419,6 +419,22 @@ MonoBehaviour:
   syncInterval: 0.1
   cameraOffset: {fileID: 6126780699847502250}
   triggerCameraRecenterDistance: 0
+--- !u!114 &2748596903535791323
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6501779739083778404}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2b0ce699fcc25cf40ace56ea83e35a56, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  degrees: 30
+  joystickThreshold: 0.7
 --- !u!114 &5601916703355076328
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -439,22 +455,6 @@ MonoBehaviour:
   groundDrag: 10
   forwardTransform: {fileID: 6501779740066629066}
   grounded: 1
---- !u!114 &2748596903535791323
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6501779739083778404}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2b0ce699fcc25cf40ace56ea83e35a56, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  degrees: 30
-  joystickThreshold: 0.7
 --- !u!114 &1193760367612632964
 MonoBehaviour:
   m_ObjectHideFlags: 0
