@@ -1,33 +1,35 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Grabbable))]
-public class Weapon : NetworkBehaviour
+public class Weapon : MonoBehaviour//NetworkBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
 
-    private Grabbable _grabbable;
     private bool _waitForReset;
-
     private float _debugTime;
-    
+
+    private void Start()
+    {
+        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        grabbable.activated.AddListener(Shoot);
+    }
+
     // Update is called once per frame
     void Update()
     {
-        if (!hasAuthority)
-            return;
+        //if (!hasAuthority)
+        //    return;
 
-        _grabbable = GetComponent<Grabbable>();
-
-        TryShoot();
+        //TryShoot();
     }
-
+/*
     private void TryShoot()
     {
-        VRHand primaryHand = _grabbable.GetHandForTriggerId(0);
         if (primaryHand == null)
             return;
         if (primaryHand.GetInputScheme().Trigger.ReadValue<float>() < 0.8f)
@@ -40,19 +42,19 @@ public class Weapon : NetworkBehaviour
 
         _waitForReset = true;
         Shoot();
-    }
+    }*/
 
-    [Command]
-    public void Shoot()
+    //[Command]
+    public void Shoot(ActivateEventArgs arg)
     {
         GameObject obj = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
-        NetworkServer.Spawn(obj);
+        //NetworkServer.Spawn(obj);
         
-        SoundManager.instance.Play("Shoot", bulletSpawn.position);
-        StartCoroutine(TactileVibrationTest());
+        //SoundManager.instance.Play("Shoot", bulletSpawn.position);
+        //StartCoroutine(TactileVibrationTest());
     }
 
-    IEnumerator TactileVibrationTest()
+    /*IEnumerator TactileVibrationTest()
     {
         VRHand primaryHand = _grabbable.GetHandForTriggerId(0);
         
@@ -61,5 +63,5 @@ public class Weapon : NetworkBehaviour
         primaryHand.Vibrate(1, 0.1f);
         yield return new WaitForSeconds(0.2f);
         primaryHand.Vibrate(.5f, 0.05f);
-    }
+    }*/
 }
