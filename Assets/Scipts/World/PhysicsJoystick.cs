@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
 
-public class Joystick : NetworkBehaviour
+public class PhysicsJoystick : NetworkBehaviour
 {
     [Header("Properties")]
     public Transform stick;

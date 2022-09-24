@@ -42,12 +42,12 @@
   </PropertyGroup>
   <ItemGroup>
      <Compile Include="Assets\Scipts\Sound\Sound.cs" />
-     <Compile Include="Assets\FootstepProducer.cs" />
+     <Compile Include="Assets\Scipts\PlayerController\FootstepProducer.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\ServerStatusPrompt.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRHandObjectHolder.cs" />
-     <Compile Include="Assets\Scipts\World\Lever.cs" />
+     <Compile Include="Assets\Scipts\World\PhysicsLever.cs" />
      <Compile Include="Assets\Scipts\PlayerController\Grabbable.cs" />
-     <Compile Include="Assets\SlideInterfacer.cs" />
+     <Compile Include="Assets\Scipts\World\Weapons\SlideInterfacer.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRRig.cs" />
      <Compile Include="Assets\Scipts\World\DemoBowlingAlley.cs" />
      <Compile Include="Assets\Scipts\PlayerController\PlayerMovement.cs" />
@@ -57,18 +57,18 @@
      <Compile Include="Assets\Scipts\Multiplayer\NetworkObjectSpawner.cs" />
      <Compile Include="Assets\Scipts\PlayerController\PlayerHeadTurn.cs" />
      <Compile Include="Assets\ParrelSync\Examples\CustomArgumentExample.cs" />
-     <Compile Include="Assets\HideOnAuthority.cs" />
+     <Compile Include="Assets\Scipts\World\HideOnAuthority.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\ItemSpawner.cs" />
-     <Compile Include="Assets\Scipts\World\Bullet.cs" />
-     <Compile Include="Assets\PlayerRespawnChecker.cs" />
+     <Compile Include="Assets\Scipts\World\Weapons\Bullet.cs" />
+     <Compile Include="Assets\Scipts\PlayerController\PlayerRespawnChecker.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\NetworkObjectRegisterer.cs" />
-     <Compile Include="Assets\Scipts\World\Weapon.cs" />
-     <Compile Include="Assets\Scipts\World\Joystick.cs" />
+     <Compile Include="Assets\Scipts\World\Weapons\Weapon.cs" />
+     <Compile Include="Assets\Scipts\World\PhysicsJoystick.cs" />
      <Compile Include="Assets\Scipts\World\PhysicsButton.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRHand.cs" />
-     <Compile Include="Assets\SpawnpointManager.cs" />
+     <Compile Include="Assets\Scipts\PlayerController\SpawnpointManager.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\NetworkAutoconnector.cs" />
-     <Compile Include="Assets\Damageable.cs" />
+     <Compile Include="Assets\Scipts\World\Damageable.cs" />
      <Compile Include="Assets\Scipts\Sound\SoundManager.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
      <None Include="Assets\Material\dev\repeating.shader" />

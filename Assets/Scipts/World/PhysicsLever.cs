@@ -5,7 +5,7 @@ using Mirror;
 using UnityEngine;
 using UnityEngine.Events;
 
-public class Lever : NetworkBehaviour
+public class PhysicsLever : NetworkBehaviour
 {
     [Header("Properties")]
     public Transform stick;

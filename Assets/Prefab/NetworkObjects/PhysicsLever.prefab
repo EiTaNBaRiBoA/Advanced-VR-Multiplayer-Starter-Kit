@@ -426,7 +426,7 @@ GameObject:
   - component: {fileID: 854029987103981234}
   - component: {fileID: 7655231995610107493}
   m_Layer: 11
-  m_Name: Lever
+  m_Name: PhysicsLever
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

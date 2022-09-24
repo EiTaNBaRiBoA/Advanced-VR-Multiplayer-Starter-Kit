@@ -62,7 +62,7 @@ GameObject:
   - component: {fileID: 3567888453924600422}
   - component: {fileID: 2556540641243856456}
   m_Layer: 11
-  m_Name: Joystick
+  m_Name: PhysicsJoystick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
