@@ -52,6 +52,7 @@
      <Compile Include="Assets\Scipts\World\DemoBowlingAlley.cs" />
      <Compile Include="Assets\Scipts\PlayerController\PlayerMovement.cs" />
      <Compile Include="Assets\Scipts\PlayerController\VRHead.cs" />
+     <Compile Include="Assets\Scipts\World\CollisionSound.cs" />
      <Compile Include="Assets\Scipts\PlayerController\Controls.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\NetworkObjectSpawner.cs" />
      <Compile Include="Assets\Scipts\PlayerController\PlayerHeadTurn.cs" />
