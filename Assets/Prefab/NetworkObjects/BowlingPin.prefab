@@ -93,6 +93,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5020287055402425609}
   - component: {fileID: 1003735173687302242}
+  - component: {fileID: 3973272538331379856}
   - component: {fileID: 5020287055402425604}
   - component: {fileID: 5020287055402425605}
   - component: {fileID: 5020287055402425610}
@@ -142,7 +143,19 @@ MonoBehaviour:
   actingTransform: {fileID: 0}
   handTriggers:
   - {fileID: 441822995389929403}
-  holdingHand: {fileID: 0}
+--- !u!114 &3973272538331379856
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5020287055402425606}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea56e29256a543549ae3d35bd1a667a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Bowling Pin
 --- !u!65 &5020287055402425604
 BoxCollider:
   m_ObjectHideFlags: 0

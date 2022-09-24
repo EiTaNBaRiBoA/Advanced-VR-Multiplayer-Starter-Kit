@@ -55,6 +55,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5239436241437963839}
   - component: {fileID: 67668517998375764}
+  - component: {fileID: -5901471204679994012}
   - component: {fileID: 4807957053611267074}
   - component: {fileID: 5239436241437963827}
   - component: {fileID: 5409387908682262948}
@@ -103,7 +104,19 @@ MonoBehaviour:
   actingTransform: {fileID: 0}
   handTriggers:
   - {fileID: 1398498536806678451}
-  holdingHand: {fileID: 0}
+--- !u!114 &-5901471204679994012
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5239436241437963824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ea56e29256a543549ae3d35bd1a667a3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  soundName: Bowling Ball
 --- !u!135 &4807957053611267074
 SphereCollider:
   m_ObjectHideFlags: 0
