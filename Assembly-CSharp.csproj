@@ -43,6 +43,7 @@
   <ItemGroup>
      <Compile Include="Assets\Scipts\Sound\Sound.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SkewTextExample.cs" />
+     <Compile Include="Assets\Scipts\PlayerController\AnimateHandOnInput.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\SimpleScript.cs" />
      <Compile Include="Assets\Scipts\PlayerController\FootstepProducer.cs" />
      <Compile Include="Assets\Scipts\Multiplayer\ServerStatusPrompt.cs" />
@@ -105,7 +106,8 @@
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\VertexZoom.cs" />
      <Compile Include="Assets\Scipts\World\DemoBallDispenser.cs" />
      <Compile Include="Assets\TextMesh Pro\Examples &amp; Extras\Scripts\Benchmark01.cs" />
-     <Compile Include="Assets\AnimateHandOnInput.cs" />
+     <Compile Include="Assets\Scipts\Multiplayer\OnlyAuthorityComponents.cs" />
+     <Compile Include="Assets\VRUtilities.cs" />
      <None Include="Assets\TextMesh Pro\Shaders\TMPro.cginc" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_SDF-Mobile Overlay.shader" />
      <None Include="Assets\TextMesh Pro\Shaders\TMP_Bitmap.shader" />
