@@ -1,4 +1,3 @@
-
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -15,7 +14,7 @@ public class DoubleXRGrabInteractable : XRGrabInteractable
      */
     
     public Transform secondAttachTransform;
-    public bool snapToSecondGrab;
+    public bool dynamicSupportHandAttach;
     private Quaternion _secondHandRotationOffset;
 
     protected override void Awake()
@@ -41,7 +40,7 @@ public class DoubleXRGrabInteractable : XRGrabInteractable
         Transform firstHand = interactorsSelecting[0].transform;
         Quaternion targetRotation = CalculateTwoHandRotation();
 
-        if (!snapToSecondGrab)
+        if (!dynamicSupportHandAttach)
             targetRotation = targetRotation * _secondHandRotationOffset;
 
         Vector3 worldDirectionFromHandleToBase = transform.position - firstAttach.position;
