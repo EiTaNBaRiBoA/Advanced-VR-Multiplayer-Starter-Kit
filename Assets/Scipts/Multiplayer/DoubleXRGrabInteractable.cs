@@ -12,7 +12,6 @@ public class DoubleXRGrabInteractable : XRGrabInteractable
      *
      * Quaternion Math:
      * https://wirewhiz.com/quaternion-tips/
-     * 
      */
     
     public Transform secondAttachTransform;
