@@ -555,7 +555,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!4 &8266615530130270606
 Transform:
   m_ObjectHideFlags: 0
@@ -1059,11 +1059,12 @@ GameObject:
   m_Component:
   - component: {fileID: 8492068254867204573}
   - component: {fileID: 8492068254867204561}
-  - component: {fileID: 8538214876282107462}
+  - component: {fileID: 1844507523414533542}
   - component: {fileID: 6389904142981481452}
   - component: {fileID: 5375273011957914527}
+  - component: {fileID: 1466792538646604579}
   - component: {fileID: 7949006830694354471}
-  - component: {fileID: 1844507523414533542}
+  - component: {fileID: 8538214876282107462}
   m_Layer: 11
   m_Name: Paintball Rifle
   m_TagString: Untagged
@@ -1106,7 +1107,7 @@ Rigidbody:
   m_Interpolate: 0
   m_Constraints: 0
   m_CollisionDetection: 0
---- !u!114 &8538214876282107462
+--- !u!114 &1844507523414533542
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1115,14 +1116,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 8492068254867204562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
+  m_Script: {fileID: 11500000, guid: cf4ead128b8cf6b4e994e00d0dfbb8b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneId: 0
-  serverOnly: 0
-  visible: 0
-  m_AssetId: d9457af795b153a489bd5213c3c94e04
-  hasSpawned: 0
+  syncMode: 0
+  syncInterval: 0.1
+  bulletPrefab: {fileID: 7011577323704750214, guid: cc8f6105fec64464a943513d7cd91504, type: 3}
+  bulletSpawn: {fileID: 2153662906360244973}
 --- !u!114 &6389904142981481452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,6 +1250,7 @@ MonoBehaviour:
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
   secondAttachTransform: {fileID: 8266615530130270606}
+  snapToSecondGrab: 0
 --- !u!114 &5375273011957914527
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,6 +1280,20 @@ MonoBehaviour:
   showGizmos: 0
   showOverlay: 0
   overlayColor: {r: 0, g: 0, b: 0, a: 0.5}
+--- !u!114 &1466792538646604579
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8492068254867204562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cddeb9aff8989f04a945086172607d87, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
 --- !u!114 &7949006830694354471
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1301,7 +1316,7 @@ MonoBehaviour:
   syncAngularVelocity: 1
   clearAngularVelocity: 0
   angularVelocitySensitivity: 0.1
---- !u!114 &1844507523414533542
+--- !u!114 &8538214876282107462
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1310,13 +1325,14 @@ MonoBehaviour:
   m_GameObject: {fileID: 8492068254867204562}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cf4ead128b8cf6b4e994e00d0dfbb8b5, type: 3}
+  m_Script: {fileID: 11500000, guid: 9b91ecbcc199f4492b9a91e820070131, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  syncMode: 0
-  syncInterval: 0.1
-  bulletPrefab: {fileID: 7011577323704750214, guid: cc8f6105fec64464a943513d7cd91504, type: 3}
-  bulletSpawn: {fileID: 2153662906360244973}
+  sceneId: 0
+  serverOnly: 0
+  visible: 0
+  m_AssetId: d9457af795b153a489bd5213c3c94e04
+  hasSpawned: 0
 --- !u!1 &8637178885074028949
 GameObject:
   m_ObjectHideFlags: 0
