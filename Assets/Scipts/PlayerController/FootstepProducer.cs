@@ -2,28 +2,26 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(CharacterController))]
 public class FootstepProducer : MonoBehaviour
 {
     public float distancePerSound;
     
     private float _distanceTraveledSinceLast;
-    private Rigidbody _rb;
-    private PlayerMovement _movement;
+    private CharacterController _movement;
     
     // Start is called before the first frame update
     void Start()
     {
-        _rb = GetComponent<Rigidbody>();
-        _movement = GetComponent<PlayerMovement>();
+        _movement = GetComponent<CharacterController>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        _distanceTraveledSinceLast += _rb.velocity.magnitude * Time.deltaTime;
+        _distanceTraveledSinceLast += _movement.velocity.magnitude * Time.deltaTime;
         
-        if (!_movement.grounded)
+        if (!_movement.isGrounded)
             return;
         if (_distanceTraveledSinceLast < distancePerSound)
             return;
