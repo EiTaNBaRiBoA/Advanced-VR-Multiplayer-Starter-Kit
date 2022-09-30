@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Damageable))]
 public class Bullet : MonoBehaviour
 {
     public float startVelocity;
@@ -16,7 +17,8 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision other)
     {
-        Damageable damageable = other.gameObject.GetComponent<Damageable>();
+        //Get damageable component in collider or in parents
+        Damageable damageable = other.gameObject.GetComponentInParent<Damageable>();
 
         if (damageable != null)
         {
