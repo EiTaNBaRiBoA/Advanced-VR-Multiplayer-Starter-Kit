@@ -2091,7 +2091,7 @@ RectTransform:
   - {fileID: 900988857}
   - {fileID: 1412319404}
   m_Father: {fileID: 1022918653}
-  m_RootOrder: 3
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 68, y: -90, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -11422,11 +11422,55 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
       propertyPath: stateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
       propertyPath: stateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1998054427}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1998054427}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1998054427}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1998054427}
     - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
@@ -11434,15 +11478,91 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1998054427}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
       propertyPath: stateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: ToggleRandomSpawning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRandomSpawning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRandomSpawning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRandomSpawning
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: SetRandomSpawning
       objectReference: {fileID: 0}
     - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
       propertyPath: stateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: SpawnpointManager, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnpointManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnpointManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnpointManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: SpawnpointManager, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_BoolArgument
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
       propertyPath: stateChanged.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverUpServer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOnServer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: leverDownServer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
+    - target: {fileID: 2054239299680112594, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
+      propertyPath: switchOffServer.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
       value: UnityEngine.Object, UnityEngine
       objectReference: {fileID: 0}
     - target: {fileID: 4331952470428717512, guid: 7aebdc4cf543f0148a133e6779e5be9a, type: 3}
