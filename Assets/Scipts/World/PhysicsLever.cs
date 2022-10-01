@@ -12,7 +12,9 @@ public class PhysicsLever : NetworkBehaviour
     public float maxAngle;
     [Space]
     public float value;
-    public UnityEvent<bool> stateChanged;
+    [Header("Event")]
+    public UnityEvent leverUpServer;
+    public UnityEvent leverDownServer;
 
     private bool _lastLeverUp;
     private Vector3 _startRotation;
@@ -33,7 +35,10 @@ public class PhysicsLever : NetworkBehaviour
         bool leverUp = (value > 0.5f);
         if (leverUp != _lastLeverUp)
         {
-            stateChanged.Invoke(leverUp);
+            if(leverUp)
+                leverUpServer.Invoke();
+            else
+                leverDownServer.Invoke();
         }
         
         _lastLeverUp = leverUp;

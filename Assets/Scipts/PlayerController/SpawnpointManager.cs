@@ -16,9 +16,9 @@ public class SpawnpointManager : MonoBehaviour
         instance = this;
     }
 
-    public void ToggleRandomSpawning()
+    public void SetRandomSpawning(bool enabled)
     {
-        randomSpawning = !randomSpawning;
+        randomSpawning = enabled;
     }
     
     public Transform GetRandomSpawn()

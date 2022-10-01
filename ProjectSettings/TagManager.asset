@@ -13,11 +13,11 @@ TagManager:
   - UI
   - Player
   - 
-  - HandPrecence
+  - Hand
   - PostProcessing
-  - GrabbableTrigger
-  - Grabbable
   - 
+  - Interactable
+  - SecondaryInteractable
   - 
   - 
   - 

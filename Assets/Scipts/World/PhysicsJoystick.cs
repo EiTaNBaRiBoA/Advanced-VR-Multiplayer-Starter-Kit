@@ -3,7 +3,9 @@ using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
+[RequireComponent(typeof(XRGrabInteractable))]
 public class PhysicsJoystick : NetworkBehaviour
 {
     [Header("Properties")]
@@ -23,7 +25,7 @@ public class PhysicsJoystick : NetworkBehaviour
         if (!hasAuthority)
             return;
 
-        if(resetWhenReleased && GetComponent<Grabbable>().GetHand() == null)
+        if(resetWhenReleased && !GetComponent<XRGrabInteractable>().isSelected)
             stick.localPosition = new Vector3(0, stick.localPosition.y, 0);
     }
 

@@ -1,65 +1,49 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Mirror;
 using UnityEngine;
+using UnityEngine.XR.Interaction.Toolkit;
 
-[RequireComponent(typeof(Grabbable))]
 public class Weapon : NetworkBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public Sound shootSound;
 
-    private Grabbable _grabbable;
     private bool _waitForReset;
-
     private float _debugTime;
+
+    private void Start()
+    {
+        XRGrabInteractable grabbable = GetComponent<XRGrabInteractable>();
+        grabbable.activated.AddListener(Shoot);
+    }
     
-    // Update is called once per frame
-    void Update()
+    public void Shoot(ActivateEventArgs args)
     {
-        if (!hasAuthority)
-            return;
-
-        _grabbable = GetComponent<Grabbable>();
-
-        TryShoot();
+        if (args.interactorObject is XRBaseControllerInteractor controllerInteractor)
+            StartCoroutine(TactileVibrationTest(controllerInteractor));
+        
+        SpawnBullet();
+        
     }
-
-    private void TryShoot()
-    {
-        VRHand primaryHand = _grabbable.GetHandForTriggerId(0);
-        if (primaryHand == null)
-            return;
-        if (primaryHand.GetInputScheme().Trigger.ReadValue<float>() < 0.8f)
-        {
-            _waitForReset = false;
-            return;
-        }
-        if (_waitForReset)
-            return;
-
-        _waitForReset = true;
-        Shoot();
-    }
-
+    
     [Command]
-    public void Shoot()
+    public void SpawnBullet()
     {
         GameObject obj = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         NetworkServer.Spawn(obj);
-        
-        SoundManager.instance.Play("Shoot", bulletSpawn.position);
-        StartCoroutine(TactileVibrationTest());
+            
+        SoundManager.instance.Play(shootSound.name, bulletSpawn.position);
     }
 
-    IEnumerator TactileVibrationTest()
+    IEnumerator TactileVibrationTest(XRBaseControllerInteractor controllerInteractor)
     {
-        VRHand primaryHand = _grabbable.GetHandForTriggerId(0);
-        
-        primaryHand.Vibrate(.7f, 0.05f);
+        controllerInteractor.SendHapticImpulse(.7f, 0.05f);
         yield return new WaitForSeconds(0.1f);
-        primaryHand.Vibrate(1, 0.1f);
+        controllerInteractor.SendHapticImpulse(1, 0.1f);
         yield return new WaitForSeconds(0.2f);
-        primaryHand.Vibrate(.5f, 0.05f);
+        controllerInteractor.SendHapticImpulse(.5f, 0.05f);
     }
 }
