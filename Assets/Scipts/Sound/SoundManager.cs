@@ -10,44 +10,43 @@ public class SoundManager : NetworkBehaviour
     public static SoundManager instance;
 
     public GameObject soundPrefab;
-    public Sound[] sounds;
+    private Sound[] sounds;
     
     void Awake()
     {
         instance = this;
+        sounds = Sound.LoadAllSounds();
     }
 
     [Server]
-    public void Play(string name, Vector3 position)
+    public void Play(string soundName, Vector3 position)
     {
-        Sound sound = FindSound(name);
+        Sound sound = FindSound(soundName);
         
         float pitch = UnityEngine.Random.Range(sound.minRandomPitch, sound.maxRandomPitch);
         int soundIndex = UnityEngine.Random.Range(0, sound.clips.Length);
 
-        instance.PlayOnClients(name, pitch, soundIndex, position);
+        instance.PlayOnClients(soundName, pitch, soundIndex, position);
     }
     
     [ClientRpc]
-    public void PlayOnClients(string name, float pitch, int soundIndex, Vector3 position)
+    public void PlayOnClients(string soundName, float pitch, int soundIndex, Vector3 position)
     {
-        PlayLocal(name, pitch, soundIndex, position);
+        PlayLocal(soundName, pitch, soundIndex, position);
     }
 
-    public void PlayLocal(string name, float pitch, int soundIndex, Vector3 position)
+    public void PlayLocal(string soundName, float pitch, int soundIndex, Vector3 position)
     {
         GameObject obj = Instantiate(soundPrefab);
         AudioSource source = obj.GetComponent<AudioSource>();
         
-        Sound sound = FindSound(name);
+        Sound sound = FindSound(soundName);
         AudioClip clip = sound.clips[soundIndex];
 
         source.clip = clip;
         source.volume = sound.volume;
         source.pitch = pitch;
         source.loop = sound.loop;
-        source.minDistance = sound.minDistance;
-        source.maxDistance = sound.maxDistance;
         
         obj.transform.position = position;
         source.Play();
@@ -56,12 +55,12 @@ public class SoundManager : NetworkBehaviour
             Destroy(obj, clip.length + 1);
     }
 
-    public Sound FindSound(string name)
+    public Sound FindSound(string soundName)
     {
-        Sound sound = Array.Find(sounds, sound => sound.name == name);
+        Sound sound = Array.Find(sounds, sound => sound.name == soundName);
         if (sound == null)
         {
-            Debug.LogWarning("Sound: " + name + " not found");
+            Debug.LogWarning("Sound: " + soundName + " not found");
             return null;
         }
 
