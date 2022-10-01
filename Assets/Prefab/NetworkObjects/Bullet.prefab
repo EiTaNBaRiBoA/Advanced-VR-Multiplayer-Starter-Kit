@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 7011577323704750209}
   - component: {fileID: 7011577323704750208}
   - component: {fileID: 7011577323704750215}
+  - component: {fileID: 9199472455359829932}
   m_Layer: 0
   m_Name: Bullet
   m_TagString: Untagged
@@ -52,6 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   startVelocity: 50
   damage: 100
+  hitSound: {fileID: 11400000, guid: 6b68017ae6e2b07449ed3e7cd04911a1, type: 2}
 --- !u!54 &7011577323704750236
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -149,6 +151,27 @@ MonoBehaviour:
   syncAngularVelocity: 1
   clearAngularVelocity: 0
   angularVelocitySensitivity: 0.1
+--- !u!114 &9199472455359829932
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7011577323704750214}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3790b7adb55f17c45ac2abf07574df48, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  syncMode: 0
+  syncInterval: 0.1
+  health: 0
+  takeDamageAuthorityEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  destroyedAuthorityEvent:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &8172140086444716650
 GameObject:
   m_ObjectHideFlags: 0

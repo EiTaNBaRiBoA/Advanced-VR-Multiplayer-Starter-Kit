@@ -460,6 +460,7 @@ MonoBehaviour:
   syncInterval: 0.1
   bulletPrefab: {fileID: 7011577323704750214, guid: cc8f6105fec64464a943513d7cd91504, type: 3}
   bulletSpawn: {fileID: 788545852341656076}
+  shootSound: {fileID: 11400000, guid: 4f42cb0db21302341badea92940b343f, type: 2}
 --- !u!114 &5727520898652934779
 MonoBehaviour:
   m_ObjectHideFlags: 0

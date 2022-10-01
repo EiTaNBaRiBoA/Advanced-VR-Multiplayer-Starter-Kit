@@ -18,5 +18,5 @@ MonoBehaviour:
   - {fileID: 8300000, guid: d3a7bc2161cc0e44eaa9a9501b552247, type: 3}
   minRandomPitch: 0.8
   maxRandomPitch: 1.2
-  volume: 0.1
+  volume: 0.3
   loop: 0

@@ -1123,6 +1123,7 @@ MonoBehaviour:
   syncInterval: 0.1
   bulletPrefab: {fileID: 7011577323704750214, guid: cc8f6105fec64464a943513d7cd91504, type: 3}
   bulletSpawn: {fileID: 2153662906360244973}
+  shootSound: {fileID: 11400000, guid: 4f42cb0db21302341badea92940b343f, type: 2}
 --- !u!114 &6389904142981481452
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,7 +1251,7 @@ MonoBehaviour:
   m_RetainTransformParent: 1
   m_AttachPointCompatibilityMode: 0
   secondAttachTransform: {fileID: 8266615530130270606}
-  snapToSecondGrab: 0
+  dynamicSupportHandAttach: 0
 --- !u!114 &5375273011957914527
 MonoBehaviour:
   m_ObjectHideFlags: 0

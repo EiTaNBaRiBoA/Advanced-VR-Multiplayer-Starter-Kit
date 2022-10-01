@@ -8,6 +8,7 @@ public class Bullet : MonoBehaviour
 {
     public float startVelocity;
     public float damage;
+    public Sound hitSound;
     
     // Start is called before the first frame update
     void Start()
@@ -25,7 +26,7 @@ public class Bullet : MonoBehaviour
             damageable.TakeDamage(damage);
         }
         
-        SoundManager.instance.Play("Bullet Hit", transform.position);
+        SoundManager.instance.Play(hitSound.name, transform.position);
         Destroy(gameObject);
     }
 }

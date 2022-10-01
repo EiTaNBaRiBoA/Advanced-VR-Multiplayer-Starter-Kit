@@ -9,6 +9,7 @@ public class Weapon : NetworkBehaviour
 {
     public GameObject bulletPrefab;
     public Transform bulletSpawn;
+    public Sound shootSound;
 
     private bool _waitForReset;
     private float _debugTime;
@@ -34,7 +35,7 @@ public class Weapon : NetworkBehaviour
         GameObject obj = Instantiate(bulletPrefab, bulletSpawn.position, bulletSpawn.rotation);
         NetworkServer.Spawn(obj);
             
-        SoundManager.instance.Play("Shoot", bulletSpawn.position);
+        SoundManager.instance.Play(shootSound.name, bulletSpawn.position);
     }
 
     IEnumerator TactileVibrationTest(XRBaseControllerInteractor controllerInteractor)

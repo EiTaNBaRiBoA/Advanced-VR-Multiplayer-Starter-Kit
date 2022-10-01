@@ -437,6 +437,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   distancePerSound: 0.8
+  sound: {fileID: 11400000, guid: 4d47bae3a500c8c40b7a544ea3488059, type: 2}
 --- !u!114 &639574208516092276
 MonoBehaviour:
   m_ObjectHideFlags: 0

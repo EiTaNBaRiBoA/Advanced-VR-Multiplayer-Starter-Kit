@@ -5,10 +5,11 @@ using UnityEngine;
 
 public class CollisionSound : MonoBehaviour
 {
-    public string soundName;
+    public Sound sound;
     
     private void OnCollisionEnter(Collision other)
     {
-        SoundManager.instance.Play(soundName, transform.position);
+        //TODO only on server
+        SoundManager.instance.Play(sound.name, transform.position);
     }
 }
