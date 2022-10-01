@@ -6,6 +6,7 @@ using UnityEngine;
 public class FootstepProducer : MonoBehaviour
 {
     public float distancePerSound;
+    public Sound sound;
     
     private float _distanceTraveledSinceLast;
     private CharacterController _movement;
@@ -26,7 +27,7 @@ public class FootstepProducer : MonoBehaviour
         if (_distanceTraveledSinceLast < distancePerSound)
             return;
         
-        SoundManager.instance.Play("Footstep", transform.position);
+        SoundManager.instance.Play(sound.name, transform.position);
         _distanceTraveledSinceLast = 0;
     }
 }
