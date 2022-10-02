@@ -23,7 +23,7 @@ public class RotatingDamageable : MonoBehaviour
     void Update()
     {
         //Set rotation on clients based on whether damageable is destroyed
-        transform.rotation = Quaternion.Euler(
+        transform.localRotation = Quaternion.Euler(
             (_damageable.health <= 0) ? destroyedRotation : _defaultRotation);
     }
 }
