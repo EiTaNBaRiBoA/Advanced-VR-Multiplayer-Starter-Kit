@@ -51,8 +51,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a29cb5d87acf7fd419cf41a2f5b94e09, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startVelocity: 50
-  damage: 100
+  startVelocity: 100
+  damage: 50
   hitSound: {fileID: 11400000, guid: 6b68017ae6e2b07449ed3e7cd04911a1, type: 2}
 --- !u!54 &7011577323704750236
 Rigidbody:
